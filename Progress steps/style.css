@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Muli & display= swap');
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Muli', sans-serif;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /*Dikeyde ortalama yapmamızı sağlar fakat bunu kullanaabilmek için yükseklik vermemiz gerekiyor */
+    height: 100vh;
+    overflow: hidden;  
+    margin: 0;  
+    background-color: #f6f7f6;
+}
+.container {
+text-align: center;
+}
+.progress-container {
+display: flex;
+justify-content: space-between;
+margin-bottom: 30px;
+position: relative;
+max-width:100%; 
+width:350px ;
+}
+.progress-container::before {
+    content: ''; /*before, after yaptıgında bunu uygula*/
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 50%; 
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;/*cizginin sayıların arkasında olduğunu göstermek icin kullanıyoruz*/
+}
+.progress {
+    background-color: #3498db;
+    position: absolute;
+    top: 50%; 
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: 0.4s ease; 
+}
+.circle {
+    background-color: #ffff;
+    color: #999;
+    border-radius:50%;
+    height: 30px;
+    width: 30px;
+    border: 3px solid #e0e0e0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transform:0.4s ease;
+    
+}
+.circle.active {
+    border-color: #3498db;
+}
+.btn {
+    background-color: #3498db;
+    color: #ffff;
+    font-size:14px ;
+    padding: 8px 30px;
+    margin: 5px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 6px;
+    font-family: inherit;
+
+}
+.btn:active {
+    transform: scale(0.98);/*tıklama efekti vermis oluyoruz*/
+}
+.btn:focus {
+    outline: 0;
+}
+.btn:disabled {
+    background-color: #999;
+    cursor:not-allowed;
+}
